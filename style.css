@@ -1,0 +1,1024 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(51, 75, 53, 1);
+  backdrop-filter: blur(6px);
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  background: rgba(51, 75, 53, 1);
+}
+
+.page-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.page-wrapper.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#contact-btn {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 4rem;
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  background-color: rgba(249, 173, 21);
+  color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contact-btn:hover {
+  background-color: #e66e00; /* same as contact section hover */
+  transform: scale(1.05);
+}
+
+#contact-btn:active {
+  transform: scale(0.98);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- NAV LINK EFFECTS --- */
+.nav-links a {
+  margin-left: 4rem;
+  text-decoration: none;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* underline appears smoothly on hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgba(249, 173, 21); 
+  transition: width 0.3s ease;
+}
+
+/* hover + active state */
+.nav-links a:hover,
+.nav-links a:focus {
+  color: rgba(249, 173, 21);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 100%;
+}
+
+.nav-links a#contact-btn::after {
+  display: none;
+}
+
+.nav-links a#contact-btn,
+.nav-links a#contact-btn:hover,
+.nav-links a#contact-btn:focus {
+  text-decoration: none;
+}
+
+.left-navbar {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 16px;
+    align-items: center;
+}
+
+#logo {
+  font-family: "Goblin One", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  color: white;
+}
+
+#hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: transparent;
+  padding: 4rem 6rem;
+  gap: 36px;
+  overflow: hidden;
+    min-height: 100vh;
+}
+
+.img-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left {
+  display: grid;
+  place-items: center;
+}
+
+.hero-bg-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-text {
+  font-family: "Goblin One", serif;
+  font-size: 14rem; /* spans wider */
+  color: rgba(249, 173, 21, 0.08); /* darker but still subtle */
+  font-weight: 700;
+  line-height: 0.9;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.bg-text.outline {
+  -webkit-text-stroke: 1px rgba(249, 173, 21, 0.15);
+  color: transparent;
+}
+
+.hero-left,
+.hero-right {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.abt-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+#greeting {
+    font-family: "Goblin One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 64px;
+    color: white;
+    line-height: 72px;
+}
+
+p {
+    text-decoration: none;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.hero-right {
+  display: grid;
+  justify-items: start; /* align inner elements (like addtl-info) to the left */
+  align-content: center;
+  gap: 8px;
+}
+
+.addtl-info {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 16px;
+}
+
+.info {
+  background-color:  rgba(249, 173, 21);
+  color: white;
+  padding: 0.2rem 1.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
+#about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem 6rem;
+    background-color: transparent;
+    gap: 36px;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* spacing between items */
+  align-items: flex-center; /* left-align them horizontally */
+  justify-content: flex-start; /* hug at the top */
+}
+
+.school {
+    text-decoration: none;
+    color: black;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.subt {
+    text-decoration: none;
+    color: black;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 0px;
+}
+
+.year {
+    font-family: "Goblin One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: black;
+    line-height: 0px;
+}
+
+h1 {
+    font-family: "Goblin One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+    color: black;
+    line-height: 72px;
+}
+
+.exp {
+    text-decoration: none;
+    color: black;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.about-right {
+  display: grid;
+  place-items: center;
+}
+
+#skills {
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  padding: 4rem 6rem;
+  min-height: 100vh;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.skills-left {
+  display: grid;
+  gap: 3rem;
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+
+.projects-right {
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: 1.5rem;
+}
+
+.project-media {
+  background-color: rgba(246, 238, 225, 0.2);
+  border: 2px dashed rgba(249, 173, 21, 0.6);
+  border-radius: 12px;
+  height: 180px;
+  display: grid;
+  place-items: center;
+  color: rgba(249, 173, 21);
+  font-size: 14px;
+  font-family: monospace;
+}
+
+.label {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 14px;
+}
+
+h2 {
+  font-family: "Goblin One", serif;
+  font-size: 28px;
+  margin-bottom: 1rem;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.skills-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* tighten or adjust this value */
+  align-items: flex-start;
+}
+
+.skills-left ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.projects-right {
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: 1.5rem;
+}
+
+.project-media {
+  height: 180px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-family: monospace;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.label {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 14px;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: 140px 140px;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.tag {
+  background-color: rgba(249, 173, 21);
+  color: white;
+  padding: 0.4rem 0rem;
+  border-radius: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.projects-section {
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+
+.projects-section h2 {
+  font-family: "Goblin One", serif;
+  font-size: 32px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* CONTACT SECTION */
+.contact {
+  background-color: #f5e9d5; /* beige background */
+  color: #000;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.contact .btn {
+  background-color: #ff7b00;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.contact .btn:hover {
+  background-color: #e66e00;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 1.8rem;
+}
+
+.socials a {
+  color: black;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+  color: #ff7b00;
+}
+
+.project-media {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-media.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-left * {
+  margin: 3px; /* remove default spacing */
+}
+
+
+@media (max-width: 1079px) {
+  #hero {
+    padding: 6rem 8rem;
+  }
+
+  .hero-left h1 {
+    font-size: 4rem;
+  }
+
+  .hero-left p {
+    font-size: 1.2rem;
+    max-width: 80%;
+  }
+
+  .hero-img {
+    max-width: 420px;
+  }
+
+  .abt-img {
+    max-width: 420px;
+  }
+
+  #greeting {
+    font-size: 56px;
+    line-height: 72px;
+  }
+
+  h1 {
+    font-family: "Goblin One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 42px;
+    color: black;
+    line-height: 72px;
+  }
+
+  .year {
+    font-family: "Goblin One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: black;
+    line-height: 14px;
+  }
+
+  .school, .exp {
+      text-decoration: none;
+      color: black;
+      font-family: "Outfit", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+  }
+
+  .subt {
+    text-decoration: none;
+    color: black;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10px;
+    line-height: 0px;
+  }
+
+  .about-left * {
+  margin: 3px; /* remove default spacing */
+  }
+}
+
+@media (max-width: 980px) {
+  #hero {
+    padding: 6rem 8rem;
+  }
+
+  .hero-left h1 {
+    font-size: 4rem;
+  }
+
+  .hero-left p {
+    font-size: 1.2rem;
+    max-width: 80%;
+  }
+
+  .hero-img {
+    max-width: 380px;
+  }
+
+  .abt-img {
+    max-width: 380px;
+  }
+
+  .bg-text {
+  font-size: 10rem; /* spans wider */
+  font-weight: 700;
+  line-height: 1;
+  }
+
+  #greeting {
+    font-style: normal;
+    font-size: 48px;
+    line-height: 72px;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .year {
+    font-size: 20px;
+    line-height: 8px;
+  }
+
+  .school, .exp {
+      font-size: 12px;
+  }
+
+  .subt {
+    font-size: 10px;
+    line-height: 0px;
+  }
+
+  .about-left * {
+  margin: 3px; /* remove default spacing */
+  }
+
+  .nav-links a {
+  margin-left: 3rem;
+  }
+
+  #contact-btn {
+  margin-left: 3rem;
+  }
+  
+  #logo {
+  font-size: 32px;
+  }
+
+  nav {
+  padding: 0.8rem 2rem;
+  }
+
+.contact {
+  padding: 60px 20px;
+  }
+}
+
+@media (max-width: 920px) {
+
+  section{
+    padding: 4rem 5rem;
+  }
+
+  .hero-img {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 870px) {
+
+  #hero{
+    padding: 4rem 4rem;
+  }
+  
+  .hero-img {
+    max-width: 420px;
+  }
+
+  #about{
+    padding: 4rem 4rem;
+  }
+
+  .nav-links a {
+  margin-left: 2.5rem;
+  }
+
+  #contact-btn {
+  margin-left: 2.5rem;
+  }
+
+  #skills {
+  padding: 4rem 4rem;
+}
+}
+
+@media (max-width: 790px) {
+
+  #hero{
+    padding: 2rem 3rem;
+  }
+  
+  .hero-img {
+    max-width: 420px;
+  }
+
+  #about{
+    padding: 4rem 3rem;
+  }
+
+  #greeting {
+    font-style: normal;
+    font-size: 42px;
+    line-height: 60px;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .year {
+    font-size: 18px;
+    line-height: 8px;
+  }
+
+  #skills {
+  padding: 4rem 3rem;
+}
+
+  .bg-text {
+  font-size: 9rem; /* spans wider */
+  font-weight: 700;
+  line-height: 1;
+  }
+}
+  @media (max-width: 450px) {
+    nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1rem 1.4rem;
+  }
+
+  #logo {
+    font-size: 24px;
+    order: 1; /* logo stays first */
+  }
+
+  .nav-links {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* spread links evenly */
+    order: 2; /* move below logo if needed */
+  }
+
+  /* make contact link same style */
+  #contact-btn {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    font-weight: 400;
+    text-decoration: none;
+    color: white; /* same as other links */
+  }
+  /* HERO SECTION */
+  #hero {
+    grid-template-columns: 1fr; /* stack columns vertically */
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-left {
+    justify-items: center; 
+    text-align: center;
+  }
+
+  .hero-right {
+    align-self: start; /* aligns the whole hero-right grid to the top */
+
+  }
+
+  #greeting {
+    justify-self: center;
+  }
+
+  .hero-left p {
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  .addtl-info {
+    display: flex;          
+    flex-direction: row;    
+    gap: 36px;               
+    flex-wrap: nowrap;      
+    justify-content: center; 
+    align-items: center;    
+  }
+
+  #greeting {
+    font-style: normal;
+    font-size: 24px;
+    line-height: 20px;
+  }
+
+  .hero-img {
+    max-width: 280px;
+  }
+
+  .bg-text {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  #greeting {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .addtl-info {
+    grid-auto-flow: row;
+    gap: 8px;
+  }
+
+  /* ABOUT SECTION */
+  #about {
+    grid-template-columns: 1fr; /* stack left & right */
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .about-left {
+    align-items: center; /* center left content */
+    justify-content: center;
+  }
+
+  .about-left * {
+    margin: 2px 0; /* tighten spacing for small screens */
+    text-align: center;
+  }
+
+  .abt-img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .year {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .school, .exp, .subt {
+    font-size: 12px;
+  }
+
+  /* SKILLS SECTION */
+  #skills {
+    padding: 2rem 1.5rem;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr; /* stack left & right */
+    gap: 2rem;
+  }
+
+/* SKILLS SECTION MOBILE ADJUSTMENTS */
+  .skills-left {
+    align-items: center; 
+    text-align: center;  
+  }
+
+  .skills-left ul {
+    list-style: none;    
+    padding-left: 0;     
+    line-height: 1.5;   
+  }
+
+
+  /* PROJECTS SECTION */
+  .projects-grid {
+    grid-template-columns: 1fr; /* stack projects vertically */
+    gap: 1rem;
+  }
+
+  .project-media {
+    height: 150px;
+  }
+
+  /* CONTACT SECTION */
+  .contact {
+    padding: 60px 1.5rem;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .socials {
+    gap: 16px;
+  }
+
+  /* NAVIGATION */
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+  }
+
+  #contact-btn {
+    margin-left: 0;
+  }
+
+  #logo {
+    font-size: 28px;
+  }
+
+  #contact-btn:active {
+  background: none;
+  box-shadow: none;
+  transform: scale(1); /* optional: prevent shrinking effect */
+  }
+}
+
+@media (max-width: 380px) {
+
+  /* Hero section adjustments */
+  #hero {
+    padding: 2rem 1.5rem;
+  }
+
+  #greeting {
+    font-size: 36px; /* smaller hero heading */
+    line-height: 48px;
+  }
+
+  .hero-left h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .hero-left p {
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  .hero-img {
+    max-width: 300px;
+  }
+
+  /* Nav adjustments */
+  nav {
+    padding: 0.5rem 1rem;
+  }
+
+  #logo {
+    font-size: 28px; /* smaller logo */
+  }
+
+  .nav-links a {
+    font-size: 12px; /* smaller nav links */
+    margin-left: 1.5rem; /* reduce spacing between links */
+  }
+
+  #contact-btn {
+    font-size: 12px;
+    margin-left: 1.5rem;
+  }
+
+  /* optional: shrink the tags in hero */
+  .addtl-info {
+    gap: 4px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
